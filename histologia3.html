@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorex Interativo de Histologia</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+            color: #212529;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .section {
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+        .section:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .card-title {
+            color: #007bff;
+            margin: 0;
+            padding: 5px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.25em;
+        }
+        .card-title::after {
+            content: '+';
+            font-size: 1.6em;
+            font-weight: 300;
+            color: #007bff;
+            transition: transform 0.3s ease;
+        }
+        .card-title.active::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+        .card-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, padding-top 0.5s ease-out;
+            padding-top: 0;
+        }
+        .card-content.show {
+            max-height: 1500px; /* A large value to ensure content fits */
+            transition: max-height 0.7s ease-in, padding-top 0.7s ease-in;
+            padding-top: 15px;
+        }
+        h3 {
+            color: #17a2b8;
+            font-size: 1.1em;
+            margin-top: 15px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 10px;
+            padding-left: 22px;
+            position: relative;
+        }
+        li::before {
+            content: '✓';
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        strong, b {
+            color: #dc3545;
+            font-weight: 600;
+        }
+        .sub-list {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        .sub-list li::before {
+            content: '›';
+            color: #fd7e14;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Memorex Interativo: Digestório & Endócrino</h1>
+
+    <div class="container">
+
+        <div class="section">
+            <h2 class="card-title">Cavidade Oral</h2>
+            <div class="card-content">
+                <ul>
+                    <li>Epitélio: <strong>pavimentoso estratificado</strong> (queratinizado ou não).</li>
+                    <li><strong>Queratinizado:</strong> gengiva e palato duro → proteção mecânica.</li>
+                    <li><strong>Não queratinizado:</strong> palato mole, lábios, bochechas, assoalho da boca.</li>
+                    <li><strong>Lâmina própria + submucosa:</strong> contém glândulas salivares menores.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Língua</h2>
+            <div class="card-content">
+                <ul>
+                    <li>Massa de <strong>músculo estriado esquelético</strong> revestido por mucosa.</li>
+                    <li>Fibras musculares em três planos, separadas por tecido conjuntivo.</li>
+                    <li><strong>Superfície dorsal:</strong> irregular, com papilas; terço posterior com <strong>tonsilas linguais</strong>.</li>
+                </ul>
+                <h3>Papilas Linguais</h3>
+                <ul class="sub-list">
+                    <li><strong>Filiformes:</strong> cônicas, numerosas, função mecânica, queratinizadas, sem botões gustativos.</li>
+                    <li><strong>Fungiformes:</strong> forma de cogumelo, com botões gustativos.</li>
+                    <li><strong>Foliadas:</strong> pouco desenvolvidas, rugas paralelas, muitos botões gustativos.</li>
+                    <li><strong>Circunvaladas:</strong> 7 a 12 grandes, no “V” lingual, com <strong>glândulas de von Ebner</strong> e numerosos botões gustativos.</li>
+                </ul>
+                <h3>Botões Gustativos</h3>
+                <ul class="sub-list">
+                    <li><strong>Estrutura:</strong> forma de cebola, 50-100 células, microvilosidades → poro gustativo.</li>
+                    <li><strong>Tipos celulares:</strong> gustativas, de suporte, basais.</li>
+                    <li><strong>Funcionamento:</strong> gustantes → receptores → proteína G (<strong>gustaducina</strong>) → despolarização → liberação de neurotransmissores.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Dentes e Estruturas Associadas</h2>
+            <div class="card-content">
+                <ul>
+                    <li><strong>Coroa:</strong> esmalte → dentina → polpa.</li>
+                    <li><strong>Raiz:</strong> cemento → dentina → polpa.</li>
+                </ul>
+                <h3>Componentes</h3>
+                <ul class="sub-list">
+                    <li><strong>Dentina:</strong> 70% mineralizada, produzida por <strong>odontoblastos</strong>. Contém túbulos dentinários.</li>
+                    <li><strong>Esmalte:</strong> Mais duro do corpo (96% mineral), produzido por <strong>ameloblastos</strong>. Proteínas: amelogeninas, enamelinas.</li>
+                    <li><strong>Polpa dentária:</strong> Tecido conjuntivo frouxo, alta vascularização e inervação. Causa a sensibilidade dolorosa.</li>
+                </ul>
+                <h3>Periodonto (Sustentação)</h3>
+                <ul class="sub-list">
+                    <li><strong>Cemento:</strong> semelhante ao osso, avascular, produzido por <strong>cementoblastos</strong>.</li>
+                    <li><strong>Ligamento periodontal:</strong> fibras entre cemento e osso alveolar.</li>
+                    <li><strong>Osso alveolar:</strong> osso imaturo em contato com o ligamento.</li>
+                    <li><strong>Gengiva:</strong> mucosa aderida, com epitélio juncional unindo à coroa.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Estrutura Geral do TGI</h2>
+            <div class="card-content">
+                <ul>
+                    <li><strong>Mucosa:</strong> epitélio de revestimento + lâmina própria + muscular da mucosa.</li>
+                    <li><strong>Submucosa:</strong> tecido conjuntivo, vasos, <strong>plexo nervoso de Meissner</strong>.</li>
+                    <li><strong>Muscular:</strong> circular interna + <strong>plexo mioentérico (Auerbach)</strong> + longitudinal externa.</li>
+                    <li><strong>Serosa:</strong> tecido conjuntivo + mesotélio.</li>
+                    <li><strong>Adventícia:</strong> apenas tecido conjuntivo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Esôfago</h2>
+            <div class="card-content">
+                <ul>
+                    <li><strong>Mucosa:</strong> epitélio pavimentoso estratificado <strong>não queratinizado</strong>.</li>
+                    <li><strong>Submucosa:</strong> glândulas esofágicas (muco).</li>
+                    <li><strong>Muscular Externa:</strong>
+                        <ul class="sub-list">
+                            <li>Terço superior → <strong>estriado</strong>.</li>
+                            <li>Terço médio → <strong>misto</strong>.</li>
+                            <li>Terço inferior → <strong>liso</strong>.</li>
+                        </ul>
+                    </li>
+                    <li>Revestimento: <strong>Adventícia</strong> (maior parte) ou <strong>serosa</strong> (no abdome).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Estômago</h2>
+            <div class="card-content">
+                <ul>
+                    <li><strong>Mucosa:</strong> epitélio colunar simples, forma <strong>fossetas gástricas</strong>.</li>
+                </ul>
+                <h3>Glândulas Gástricas (Fundo/Corpo)</h3>
+                <ul class="sub-list">
+                    <li><strong>Células-tronco:</strong> renovação.</li>
+                    <li><strong>Células mucosas do colo:</strong> muco.</li>
+                    <li><strong>Células parietais (oxínticas):</strong> HCl + fator intrínseco.</li>
+                    <li><strong>Células zimogênicas (principais):</strong> pepsinogênio + lipase.</li>
+                    <li><strong>Células enteroendócrinas:</strong> Gastrina.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Intestino Delgado</h2>
+            <div class="card-content">
+                <ul>
+                    <li>Segmentos: duodeno, jejuno, íleo.</li>
+                </ul>
+                <h3>Estruturas de Absorção</h3>
+                <ul class="sub-list">
+                    <li><strong>Pregas circulares</strong> (Kerckring).</li>
+                    <li><strong>Vilosidades</strong> intestinais.</li>
+                    <li><strong>Microvilosidades</strong> (borda em escova).</li>
+                </ul>
+                <h3>Células da Mucosa</h3>
+                <ul class="sub-list">
+                    <li><strong>Enterócitos:</strong> absorção.</li>
+                    <li><strong>Caliciformes:</strong> muco.</li>
+                    <li><strong>Paneth:</strong> lisozima, defensinas (fundo das criptas).</li>
+                    <li><strong>Células M:</strong> apresentação de antígenos.</li>
+                </ul>
+                <h3>Características Regionais</h3>
+                <ul class="sub-list">
+                    <li><strong>Duodeno:</strong> glândulas de Brunner (muco alcalino) na submucosa.</li>
+                    <li><strong>Íleo:</strong> placas de Peyer (tecido linfoide) na submucosa.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Intestino Grosso</h2>
+            <div class="card-content">
+                <ul>
+                    <li>Funções: absorção de água, formação da massa fecal.</li>
+                    <li><strong>Mucosa:</strong> sem vilosidades, criptas longas e retas, muitas <strong>células caliciformes</strong>.</li>
+                    <li><strong>Muscular Externa:</strong> possui <strong>tênias do cólon</strong> (3 bandas espessas de músculo longitudinal).</li>
+                    <li><strong>Apêndice:</strong> semelhante ao cólon, mas rico em nódulos linfoides.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Hipófise (Glândula Pituitária)</h2>
+            <div class="card-content">
+                <h3>Adeno-hipófise (Lobo Anterior)</h3>
+                <ul class="sub-list">
+                    <li><strong>Somatotróficas:</strong> GH.</li>
+                    <li><strong>Mamotróficas:</strong> Prolactina (PRL).</li>
+                    <li><strong>Gonadotróficas:</strong> FSH, LH.</li>
+                    <li><strong>Tireotróficas:</strong> TSH.</li>
+                    <li><strong>Corticotróficas:</strong> ACTH.</li>
+                </ul>
+                <h3>Neuro-hipófise (Lobo Posterior)</h3>
+                <ul class="sub-list">
+                    <li><strong>Armazena e libera hormônios do hipotálamo.</strong></li>
+                    <li>Contém axônios, <strong>pituícitos</strong> (células gliais) e <strong>Corpos de Herring</strong>.</li>
+                    <li><strong>Hormônios:</strong> ADH (antidiurético) e Ocitocina.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Glândulas Adrenais (Suprarrenais)</h2>
+            <div class="card-content">
+                <h3>Córtex Adrenal (origem mesodérmica)</h3>
+                <ul class="sub-list">
+                    <li><strong>Zona Glomerulosa:</strong> Mineralocorticoides (ex: <strong>aldosterona</strong>). Controle: renina-angiotensina.</li>
+                    <li><strong>Zona Fasciculada:</strong> Glicocorticoides (ex: <strong>cortisol</strong>). Controle: ACTH.</li>
+                    <li><strong>Zona Reticulada:</strong> Andrógenos (ex: <strong>DHEA</strong>). Controle: ACTH.</li>
+                </ul>
+                <h3>Medula Adrenal (origem na crista neural)</h3>
+                <ul class="sub-list">
+                    <li><strong>Células cromafins</strong> (neurônios simpáticos modificados).</li>
+                    <li><strong>Produz:</strong> Catecolaminas (<strong>adrenalina e noradrenalina</strong>).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Pâncreas Endócrino (Ilhotas)</h2>
+            <div class="card-content">
+                <ul>
+                    <li>Estrutura: cordões celulares + capilares fenestrados.</li>
+                </ul>
+                <h3>Tipos Celulares</h3>
+                <ul class="sub-list">
+                    <li><strong>Células Alfa (α):</strong> Glucagon (hiperglicemiante).</li>
+                    <li><strong>Células Beta (β):</strong> Insulina (hipoglicemiante).</li>
+                    <li><strong>Células Delta (δ):</strong> Somatostatina (inibe secreções).</li>
+                    <li><strong>Células PP:</strong> Polipeptídeo pancreático.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="card-title">Outras Glândulas Endócrinas</h2>
+            <div class="card-content">
+                <h3>Glândula Tireoide</h3>
+                <ul class="sub-list">
+                    <li><strong>Estrutura:</strong> folículos tireoidianos com <strong>coloide</strong>.</li>
+                    <li><strong>Células foliculares:</strong> produzem T3 e T4.</li>
+                    <li><strong>Células parafoliculares (Células C):</strong> produzem <strong>Calcitonina</strong>.</li>
+                </ul>
+                <h3>Paratireoides</h3>
+                <ul class="sub-list">
+                    <li><strong>Células principais:</strong> produzem <strong>paratormônio (PTH)</strong>, que aumenta o cálcio no sangue.</li>
+                    <li><strong>Células oxífilas:</strong> função desconhecida.</li>
+                </ul>
+                <h3>Glândula Pineal</h3>
+                <ul class="sub-list">
+                    <li><strong>Pinealócitos:</strong> produzem <strong>melatonina</strong>.</li>
+                    <li><strong>Função:</strong> regulação dos ritmos circadianos (sono).</li>
+                    <li>Pode conter <strong>areia cerebral</strong> (depósitos de cálcio) com a idade.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const titles = document.querySelectorAll('.card-title');
+
+            titles.forEach(title => {
+                title.addEventListener('click', function() {
+                    // Adiciona/remove a classe 'active' no título para mudar o ícone (+/-)
+                    this.classList.toggle('active');
+
+                    // Seleciona o conteúdo do card, que é o próximo elemento irmão
+                    const content = this.nextElementSibling;
+
+                    // Adiciona/remove a classe 'show' para exibir/ocultar o conteúdo
+                    content.classList.toggle('show');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
